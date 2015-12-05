@@ -1,0 +1,45 @@
+@import 'bootstrap-sass/bootstrap-sprockets';
+@import 'bootstrap-sass';
+@import 'metronic-app';
+@import 'bourbon';
+@import 'custom-mixin';
+@import 'custom-base';
+
+html, body {
+  font-family: 'Nanum Barun Gothic', '돋움', dotum, sans-serif;
+}
+
+.form-body {
+  max-width:900px;
+}
+
+.md-radio-inline {
+  label {
+    line-height:20px;
+  }
+  .md-checkbox.with-input {
+    label {
+      span.inc {
+        top:-14px;
+      }
+      span.check {
+        top:3px;
+      }
+      span.box {
+        top:6px;
+      }
+    }
+    input {
+      height:33px;
+      font-size:17px;
+    }
+  }
+}
+
+.md-radio label > .check {
+  background:black;
+}
+
+.form-group {
+  font-size:15px;
+}

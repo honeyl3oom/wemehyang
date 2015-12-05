@@ -1,0 +1,31 @@
+<div class="top-bg">
+  <div class="backdrop">
+    <div class="ctt" vertical-center=".backdrop">
+      <span>아름다운 향기의 추억</span>
+      <span>위미향</span>
+    </div>
+  </div>
+</div>
+
+
+<div class="content-cont">
+  <div class="indexes">
+    <div class="m <%="active" if @current_uri == client_notice_path%>" url="<%=client_notice_path%>">공지사항</div>
+    <div class="m <%="active" if @current_uri == client_faq_path%>" url="<%=client_faq_path%>">자주묻는 질문</div>
+  </div>
+
+  <div class="list">
+    <div class="notice" ng-repeat="notice in notices" ng-click="notice.collapsed = !notice.collapsed">
+      <div class="notice-title" ng-class="{'fold' : !notice.collapsed }">
+        <div class="title-fold-form">
+          <span class="ic-fold" ng-class="{'collapsed' : !notice.collapsed}"></span>
+          <span class="title">{{notice.title}}</span>
+        </div>
+        <span class="date">{{notice.created}}</span>
+      </div>
+      <div class="notice-content" ng-show="!notice.collapsed">
+        <div class="content html-content" ng-bind-html="ghelper.html_view(notice.content)"></div>
+      </div>
+    </div>
+  </div>
+</div>

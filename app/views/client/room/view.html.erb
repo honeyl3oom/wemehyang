@@ -1,0 +1,85 @@
+<div class="top-bg">
+  <div class="backdrop">
+    <div class="ctt" vertical-center=".backdrop">
+      <span>아름다운 향기의 추억</span>
+      <span>위미향</span>
+    </div>
+  </div>
+</div>
+
+<div class="content-cont">
+  <div class="room-title">
+    <span class="name">W101</span>
+    <span class="info">객실 12평 / 개별마당 10평 / 2명( 최소2/추가0/최대2 )</span>
+  </div>
+
+  <div class="top-image">
+    <carousel interval="5000">
+      <slide ng-repeat="i in room_images" ng-click="show_carousel_image($index)">
+        <div class="backdrop"></div>
+        <div class="image" ng-style="{'background-image':'url({{i.url}})'}"></div>
+      </slide>
+    </carousel>
+  </div>
+  <div id="top-carousel-images" blueimp-gallery-img>
+    <a href="{{img.url}}" ng-repeat="img in room_images">
+      <img ng-src="{{img.url}}">
+    </a>
+  </div>
+
+  <div class="info-cont">
+    <div class="brand-z">
+      <div class="tit"><span>BRAND</span></div>
+      <div class="ctt">
+        덴마크 OX DENMARK 대리석 테이블<span class="sls">/</span>벨기에 ETHINICRAFT 사이드보드<span class="sls">/</span>SEDEC HOME 헝가리산 구스다운, 침구
+      </div>
+    </div>
+
+    <div class="type-z">
+      <div class="item">
+        <span class="tit">객실타입</span>
+        <span class="ctt">스탠다드 / 욕실1 / 객실1 / 주방 / 야외자쿠지</span>
+      </div>
+      <div class="item">
+        <span class="tit">객실시설</span>
+        <span class="ctt">TV / 무료 유무선 인터넷 / 주방시설 및 요리기구<br>
+          식기류 / 냉장고 / 전자레인지 / 헤어드라이기<br>
+        개별냉난방</span>
+      </div>
+      <div class="item">
+        <span class="tit">제공서비스</span>
+        <span class="ctt">어메니티 / 조식서비스 / 카페이용 / 야외자쿠지</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="btn-cont">
+    <a href="#">예약하기</a>
+    <a href="<%=room_index_path%>">목록으로</a>
+  </div>
+
+</div>
+
+<script id="template/carousel/carousel.html" type="text/ng-template">
+  <div ng-mouseenter="pause()" ng-mouseleave="play()" class="carousel" ng-swipe-right="prev()" ng-swipe-left="next()">
+    <div class="indicator-container">
+      <ol class="carousel-indicators" ng-show="slides.length > 1" >
+          <li ng-repeat="slide in slides track by $index" ng-class="{active: isActive(slide)}" ng-click="select(slide)"></li>
+      </ol>
+    </div>
+    <div class="carousel-inner" ng-transclude></div>
+    <div class="left carousel-control arrow" ng-click="prev()" ng-show="slides.length > 1">
+    </div>
+    <div class="right carousel-control arrow" ng-click="next()" ng-show="slides.length > 1">
+    </div>
+  </div>
+</script>
+<script id="template/carousel/slide.html" type="text/ng-template">
+  <div ng-class="{
+    'active': leaving || (active && !entering),
+    'prev': (next || active) && direction=='prev',
+    'next': (next || active) && direction=='next',
+    'right': direction=='prev',
+    'left': direction=='next'
+  }" class="item" ng-transclude></div>
+</script>

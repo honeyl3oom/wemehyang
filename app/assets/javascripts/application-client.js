@@ -1,0 +1,12 @@
+//=require jquery
+//=require angular
+//=require angular-touch
+//=require angular-sanitize
+//=require angular-ui-bootstrap-bower
+//=require angular/global
+//=require angular/directives
+//=require angular/services
+//=require angular/filters
+//=require lib/cookie
+//=require lib/loadCSS
+//=require client/init

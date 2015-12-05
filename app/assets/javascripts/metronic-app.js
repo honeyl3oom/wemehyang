@@ -1,0 +1,11 @@
+//= require metronic/global/jquery.min
+//= require metronic/global/jquery-migrate.min
+//= require metronic/global/bootstrap.min
+//= require metronic/global/bootstrap-hover-dropdown.min
+//= require metronic/global/jquery.slimscroll.min
+//= require metronic/global/jquery.blockui.min
+//= require metronic/global/jquery.cokie.min
+//= require metronic/global/jquery.uniform.min
+//= require metronic/global/metronic
+//= require metronic/global/layout
+//= require metronic/global/init

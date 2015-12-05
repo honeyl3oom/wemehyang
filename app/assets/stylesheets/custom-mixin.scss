@@ -1,0 +1,20 @@
+@mixin transparent($color, $alpha) {
+  $rgba: rgba($color, $alpha);
+  $ie-hex-str: ie-hex-str($rgba);
+  background-color: transparent;
+  background-color: $rgba;
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#{$ie-hex-str},endColorstr=#{$ie-hex-str});
+}
+@mixin border-radius($p) {
+  @include border-top-radius($p);
+  @include border-bottom-radius($p);
+}
+
+@mixin text-ellipsis($line) {
+  display:-webkit-box;
+  overflow:hidden;
+  word-break:break-all;
+  text-overflow:ellipsis;
+  -webkit-line-clamp:$line;
+  -webkit-box-orient:vertical;
+}

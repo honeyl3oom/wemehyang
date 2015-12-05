@@ -1,0 +1,11 @@
+//=require metronic-app
+//=require angular
+//=require angular-touch
+//=require angular-sanitize
+//=require angular-ui-bootstrap-bower
+//=require angular/global
+//=require angular/directives
+//=require angular/services
+//=require angular/filters
+//=require loadcss
+//=require Cookies

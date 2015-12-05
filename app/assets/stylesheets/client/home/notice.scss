@@ -1,0 +1,110 @@
+@import 'config-client';
+
+.top-bg {
+  background-image:url($image-path+"/ex/customer_top_img.jpg");
+  background-size:cover;
+  background-position:center;
+  height:150px;
+  .backdrop {
+    @include background-image(linear-gradient(180deg, rgba(0,0,0,0), rgba(0,0,0,0.4)));
+    filter:progid:DXImageTransform.Microsoft.Gradient(gradientType=0, startColorStr="#00ffffff", endColorStr="#77000000")\9;
+    z-index:9;
+    width:100%;
+    height:100%;
+    position:relative;
+    .ctt {
+      text-align:center;
+      span {
+        display:block;
+        color:white;
+        font-size:14px;
+      }
+      span:last-child {
+        font-size:12px;
+        margin-top:20px;
+      }
+    }
+  }
+}
+.content-cont {
+  padding:30px 0 50px;
+  width:900px;
+  margin:0 auto;
+  .indexes {
+    margin:35px 0;
+    .m {
+      width:438px;
+      margin-right:20px;
+      border:1px solid #000;
+      color:#000;
+      display:inline-block;
+      text-align:center;
+      padding:10px 0;
+      font-size:15px;
+    }
+    .m.active, .m:hover {
+      background-color:black;
+      color:white;
+    }
+    .m:last-child {
+      margin-right:0;
+    }
+  }
+}
+
+.list {
+  margin-top:35px;
+  .notice {
+    cursor : pointer;
+    text-align : left;
+    background-color : #ffffff;
+    padding-top : 11px;
+    padding-bottom : 13px;
+    border-bottom : 1px solid #c5cfd8;
+    .notice-title{
+      .title-fold-form{
+        margin-bottom: 4px;
+        .title{
+          font-size:16px;
+          color : #000;
+          @include text-ellipsis(1);
+        }
+        .ic-fold {
+          float:right;
+          margin-top:8px;
+          width:10px;
+          height:6px;
+          display:inline-block;
+          background-image:url($image-path+"/icons/unfold_ic.png");
+          background-size:cover;
+          vertical-align:top;
+          display:inline-block;
+          background-repeat:no-repeat;
+        }
+        .ic-fold.collapsed {
+          background-image:url($image-path+"/icons/fold_ic.png");
+        }
+      }
+      .date{
+        font-size:12px;
+        color : #98a4af;
+      }
+      .content{
+        font-size:14px;
+        color : #000000;
+      }
+    }
+    .notice-title.fold{
+      margin-bottom: 11px;
+      .title{
+        display : block;
+        height : auto;
+      }
+    }
+    .notice-content {
+      .html-content {
+        font-size:14px;
+      }
+    }
+  }
+}

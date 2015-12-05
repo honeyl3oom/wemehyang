@@ -1,0 +1,120 @@
+@import 'blueimp-gallery';
+.image-gallery {
+  @include inline-block;
+  .photo {
+    @include inline-block;
+    position:relative;
+    margin-right:6px;
+    margin-bottom:6px;
+  }
+  img {
+    width:160px;
+    height:90px;
+  }
+  .bg-alpha {
+    @include border-radius(6px);
+    display:none;
+    position:absolute;
+    top:0;
+    left:0;
+    background-color:rgba(0,0,0,0.3);
+    width:160px;
+    height:90px;
+    z-index:10;
+  }
+  .photo-close {
+    display:none;
+    position:absolute;
+    top:3px;
+    right:10px;
+    color:white;
+    font-size:19px;
+    line-height:20px;
+    z-index:100;
+  }
+  .photo-close-cancel {
+    display:none;
+    position:absolute;
+    top:25px;
+    left:62px;
+    z-index:100;
+    color:white;
+    font-size:35px;
+    line-height:38px;
+  }
+  .photo:hover {
+    .photo-close, .bg-alpha {
+      display:block;
+    }
+  }
+  .photo.deleted {
+    .bg-alpha {
+      display:block;
+      background-color:rgba(0,0,0,0.5);
+    }
+    .photo-close-cancel {
+      display:block;
+    }
+  }
+  .photo.deleted:hover {
+    .photo-close {
+      display:none;
+    }
+  }
+}
+
+.blueimp-gallery {
+  .prev, .next {
+    width:30px;
+    height:58px;
+    background:none;
+    background-image:url($image-path+"/common/arrow_next_btn.png");
+    background-repeat:no-repeat;
+    background-size:100%;
+    text-decoration:none;
+    border:0;
+    opacity:1;
+    display:block;
+  }
+  .prev {
+    background-image:url($image-path+"/common/arrow_prev_btn.png");
+  }
+  .close {
+    display:block;
+    padding:0;
+    margin:0;
+    top:10px;
+    right:10px;
+    opacity:1.0;
+    width:20px;
+    height:20px;
+    background-image:url($image-path+"/icons/close_btn_white.png") !important;
+    background-repeat:no-repeat;
+    background-size:cover;
+    text-decoration:none;
+  }
+}
+.mobile-os {
+  .blueimp-gallery {
+    .prev, .next {
+      display:none;
+    }
+  }
+}
+.photo {
+  width:160px;
+  height:90px;
+  position:relative;
+  display:inline-block;
+  margin-right:5px;
+  img {
+    vertical-align:top;
+    height:100%;
+  }
+  .photo-close {
+    cursor:pointer;
+  }
+  &:active {
+    opacity:1;
+  }
+}

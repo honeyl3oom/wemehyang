@@ -1,0 +1,68 @@
+@import 'wrap/font-awesome-wrap';
+@import 'metronic/global/simple-line-icons';
+@import 'metronic/global/uniform.default';
+@import 'metronic/global/components-md';
+@import 'metronic/global/plugins-md';
+@import 'metronic/global/admin/layout4/layout';
+@import 'metronic/global/admin/layout4/light';
+@import 'metronic/global/admin/layout4/custom';
+.page-header.navbar.navbar-fixed-top {
+  z-index:1040;
+  height:50px;
+  min-height:50px;
+  .page-logo {
+    height:50px;
+    a {
+      line-height:50px;
+      font-size:20px;
+      color:#b0c8e8;
+      &:hover {
+        text-decoration:none;
+      }
+    }
+    .logo-default {
+      margin-top:13px;
+    }
+  }
+  .menu-toggler.sidebar-toggler,.menu-toggler.responsive-toggler  {
+    margin-top:17px;
+  }
+  .logout {
+    line-height:21px;
+    padding:13px 19px 10px;
+    text-decoration:none;
+    color:#a7adcd;
+    .icon-logout {
+      color:#a7bdcd;
+      font-size:20px;
+      vertical-align:top;
+      margin-right:5px;
+      margin-top:-1px;
+      line-height:21px;
+    }
+    &:hover {
+      background-color:transparent;
+    }
+  }
+}
+.page-header-fixed {
+  .page-container {
+    margin-top:55px;
+  }
+}
+.control-label {
+  padding-top:5px;
+  font-size:16px;
+}
+.portlet.box {
+  .portlet-title {
+    .actions {
+      padding-top:9px;
+    }
+  }
+}
+
+
+.note.note-info {
+  letter-spacing:0px;
+}

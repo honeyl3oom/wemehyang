@@ -1,0 +1,70 @@
+<div class="top-image">
+  <carousel interval="5000">
+    <slide ng-repeat="i in main_images" ng-click="show_carousel_image($index)">
+      <div class="backdrop"></div>
+      <div class="image" ng-style="{'background-image':'url({{i.url}})'}"></div>
+    </slide>
+  </carousel>
+</div>
+<div id="top-carousel-images" blueimp-gallery-img>
+  <a href="{{img.url}}" ng-repeat="img in main_images">
+    <img ng-src="{{img.url}}">
+  </a>
+</div>
+
+<div class="bot">
+  <div class="cont">
+    <div class="mn-cont">
+      <div class="mn l" url="<%=room_index_path%>">
+        <div class="bg">
+          <div class="alpha">
+            <div class="ctt" vertical-center=".alpha">
+              <span class="tit">펜션둘러보기</span><i class="fa fa-arrow-right fa-3x"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mn r" url="<%=client_special_path%>">
+        <div class="bg">
+          <div class="alpha">
+            <div class="ctt" vertical-center=".alpha">
+              <span class="tit">특별함</span><i class="fa fa-arrow-right fa-3x"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="map-cont">
+      <h1><i class="fa fa-map-marker"></i>제주 서귀포시 남원읍 위미중앙로 246번길 10</h1>
+      <div id="ps-map">
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBADvtOR6liHI-bMgBVuewbmE1KA3JR9js&callback=initMap" async defer></script>
+
+
+<script id="template/carousel/carousel.html" type="text/ng-template">
+  <div ng-mouseenter="pause()" ng-mouseleave="play()" class="carousel" ng-swipe-right="prev()" ng-swipe-left="next()">
+    <div class="indicator-container">
+      <ol class="carousel-indicators" ng-show="slides.length > 1" >
+          <li ng-repeat="slide in slides track by $index" ng-class="{active: isActive(slide)}" ng-click="select(slide)"></li>
+      </ol>
+    </div>
+    <div class="carousel-inner" ng-transclude></div>
+    <div class="left carousel-control arrow" ng-click="prev()" ng-show="slides.length > 1">
+    </div>
+    <div class="right carousel-control arrow" ng-click="next()" ng-show="slides.length > 1">
+    </div>
+  </div>
+</script>
+<script id="template/carousel/slide.html" type="text/ng-template">
+  <div ng-class="{
+    'active': leaving || (active && !entering),
+    'prev': (next || active) && direction=='prev',
+    'next': (next || active) && direction=='next',
+    'right': direction=='prev',
+    'left': direction=='next'
+  }" class="item" ng-transclude></div>
+</script>

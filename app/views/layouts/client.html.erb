@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html ng-cloak ng-app="psApp">
+<head>
+  <title><%=@title%></title>
+	<meta charset="utf-8">
+  <link rel="shortcut icon" href="<%=@web_img_path%>/favicon.png" >
+  <link rel="apple-touch-icon" href="<%=@web_img_path%>/favicon.png" >
+  <!-- <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0"> -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta property="og:type" content="<%=@meta_type%>">
+  <meta property="og:site_name" content="<%=@meta_site_name%>">
+  <meta property="og:url" content="<%=@meta_url%>">
+  <meta property="og:title" content="<%=@meta_title%>">
+  <meta property="og:image" content="<%=@meta_image%>">
+  <meta property="og:description" content="<%=@meta_description%>">
+  <meta property="description" content="<%=@meta_description%>">
+  <%= include_gon %>
+  <%= stylesheet_link_tag "#{params[:controller]}/#{params[:action]}", media: 'all' %>
+  <%= javascript_include_tag 'application-client', @js_controller_action %>
+  <script>
+    var font_url = "http://cdn.jsdelivr.net/font-nanum/1.0/nanumbarungothic/nanumbarungothic.css";
+    if(!cookie("fonts")) {
+      loadCSS(font_url);
+      cookie("fonts", font_url, 365);
+    }
+  </script>
+  <!--[if lt IE 10]>
+  <%= javascript_include_tag 'lib/placeholders.min' %>
+  <![endif]-->
+  <%= csrf_meta_tags %>
+</head>
+
+<body class="<%="#{params[:controller].parameterize} #{params[:action]}"%>" ng-controller="MainCtrl">
+  <div id="app-container" ng-controller="<%="#{params[:controller].split("/").map{|a| a.capitalize}.join}#{params[:action].split("_").map{|a| a.capitalize}.join}"%>">
+    <div class="ps-header">
+      <div class="logo-cont" url="<%=client_home_path%>">
+        <!-- <i class="fa fa-home fa-2x"></i> -->
+        <span>위미향</span>
+      </div>
+      <ul class="menu-cont">
+        <li class="<%="active" if @menu[:home].include?(@current_uri) %>"><a href="<%=client_home_path%>"><span>홈</span></a></li>
+        <li class="<%="active" if @menu[:room].include?(@current_uri) %>"><a href="<%=room_index_path%>"><span>펜션둘러보기</span></a></li>
+        <li class="<%="active" if @menu[:special].include?(@current_uri) %>"><a href="<%=client_special_path%>"><span>특별함</span></a></li>
+        <li class="<%="active" if @current_uri == "" %>"><a href="#"><span>예약</span></a></li>
+        <li class="<%="active" if @menu[:customer].include?(@current_uri) %>"><a href="<%=client_notice_path%>"><span>고객센터</span></a></li>
+      </ul>
+    </div>
+    <div class="ps-content">
+      <%=yield%>
+    </div>
+
+    <div class="ps-footer">
+      <div class="cont">
+        <img src="" alt="로고" class="logo">
+        <div class="ctt">
+          상호 : 위미향 / 제주 서귀포시 남원읍 위미중앙로246번길 10 / 대표 : OOO / 예약문의 : 010-0000-0000 / 카카오톡 아이디 : oooooo<br>
+          사업자등록번호 : 000-00-00000 / 통신판매업신고번호 : <br>
+          <div class="copyright">
+            Copyright &copy; 위미향.&nbsp;&nbsp;ALL&nbsp;&nbsp;RIGHTS&nbsp;&nbsp;RESERVED.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

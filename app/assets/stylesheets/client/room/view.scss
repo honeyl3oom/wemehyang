@@ -1,0 +1,203 @@
+@import 'config-client';
+@import 'lib/set-blueimp';
+
+.top-bg {
+  background-image:url($image-path+"/ex/room_top_img.jpg");
+  background-size:cover;
+  background-position:center;
+  height:150px;
+  .backdrop {
+    @include background-image(linear-gradient(180deg, rgba(0,0,0,0), rgba(0,0,0,0.4)));
+    filter:progid:DXImageTransform.Microsoft.Gradient(gradientType=0, startColorStr="#00ffffff", endColorStr="#77000000")\9;
+    z-index:9;
+    width:100%;
+    height:100%;
+    position:relative;
+    .ctt {
+      text-align:center;
+      span {
+        display:block;
+        color:white;
+        font-size:14px;
+      }
+      span:last-child {
+        font-size:12px;
+        margin-top:20px;
+      }
+    }
+  }
+}
+
+.top-image {
+  position:relative;
+  width:780px;
+  margin:0 auto;
+  .arrow {
+    width:27px;
+    height:54px;
+    position:absolute;
+    top:50%;
+    margin-top:-27px;
+    right:20px;
+    background-image:url($image-path+"/common/arrow_next_btn.png");
+    background-repeat:no-repeat;
+    background-size:cover;
+  }
+  .arrow.left {
+    background-image:url($image-path+"/common/arrow_prev_btn.png");
+    right:0;
+    left:20px;
+  }
+  .carousel-inner {
+    cursor:pointer;
+    .backdrop {
+      @include background-image(linear-gradient(180deg, rgba(0,0,0,0), rgba(0,0,0,0.4)));
+      filter:progid:DXImageTransform.Microsoft.Gradient(gradientType=0, startColorStr="#00ffffff", endColorStr="#77000000")\9;
+      z-index:9;
+      width:100%;
+      height:100%;
+      position:absolute;
+      top:0;
+      left:0;
+    }
+    .image {
+      width:100%;
+      height:480px;
+      background-repeat:no-repeat;
+      background-position:center;
+      background-size:cover;
+    }
+  }
+  .carousel-control {
+    filter:none;
+    text-shadow:none;
+    opacity:1.0;
+    z-index:40;
+    &:hover {
+      cursor:pointer;
+      opacity:1.0;
+    }
+  }
+  .indicator-container {
+    position:absolute;
+    bottom:13px;
+    width:100%;
+    z-index:40;
+    .carousel-indicators {
+      width:auto;
+      margin:0;
+      padding:0;
+      bottom:0;
+      left:0;
+      display:block;
+      position:relative;
+      margin-left:0 !important;
+      li {
+        @include inline-block;
+        @include border-radius(4px);
+        width:8px;
+        height:8px;
+        margin:0 8px;
+        background-color:rgba(255, 255, 255, 0.3);
+        border-color:transparent;
+      }
+      li.active {
+        background-color:#fff;
+      }
+    }
+  }
+}
+
+#top-carousel-images {
+  display:none;
+}
+
+.content-cont {
+  padding:30px 0 50px;
+  margin:0 auto;
+  .room-title {
+    text-align:center;
+    span {display:block;}
+    .name {
+      font-size:30px;
+    }
+    .info {
+      font-size:13px;
+      margin-top:7px;
+    }
+  }
+  .top-image {
+    margin-top:40px;
+  }
+  .info-cont {
+    margin-top:50px;
+    .brand-z {
+      text-align:center;
+      position:relative;
+      .tit {
+        font-size:17px;
+        font-weight:bold;
+        line-height:33px;
+        span {
+          display:block;
+        }
+        span:after {
+          display:block;
+          margin:0 auto;
+          width:40px;
+          height:1px;
+          content:"";
+          background-color:#000;
+        }
+      }
+      .ctt {
+        margin-top:20px;
+        font-size:12px;
+        letter-spacing:0px;
+        color:#5a5a5a;
+      }
+    }
+    .type-z {
+      display:block;
+      text-align:center;
+      margin-top:55px;
+      .item {
+        display:inline-block;
+        text-align:left;
+        border-top:1px solid #d0d0d0;
+        width:280px;
+        margin-right:40px;
+        vertical-align:top;
+        span {
+          display:block;
+        }
+        .tit {
+          font-size:14px;
+          padding:23px 0;
+          font-weight:bold;
+        }
+        .ctt {
+          font-size:12px;
+          color:#999;
+        }
+      }
+      .item:last-child {
+        margin-right:0;
+      }
+    }
+  }
+  .btn-cont {
+    text-align:center;
+    margin-top:45px;
+    a {
+      color:inherit;
+      display:inline-block;
+      padding:10px;
+      font-size:22px;
+      margin-right:90px;
+    }
+    a:last-child {
+      margin-right:0;
+    }
+  }
+}

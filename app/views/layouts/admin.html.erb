@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html ng-cloak ng-app="csApp">
+<head>
+  <title><%=@global_var["meta"]["title"]%></title>
+  <meta charset="UTF-8">
+  <link rel="shortcut icon" href="<%=@web_img_path%>/favicon.png" >
+  <link rel="apple-touch-icon" href="<%=@web_img_path%>/favicon.png" >
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta property="og:type" content="<%=@global_var["meta"]["type"]%>">
+  <meta property="og:site_name" content="<%=@global_var["meta"]["site_name"]%>">
+  <meta property="og:url" content="<%=@global_var["meta"]["url"]%>">
+  <meta property="og:title" content="<%=@global_var["meta"]["title"]%>">
+  <meta property="og:image" content="<%=@global_var["meta"]["image"]%>">
+  <meta property="og:description" content="<%=@global_var["meta"]["description"]%>">
+  <meta property="description" content="<%=@global_var["meta"]["description"]%>">
+  <%= include_gon %>
+  <%= stylesheet_link_tag "#{params[:controller]}/#{params[:action]}", media: 'all' %>
+  <%= javascript_include_tag 'application-admin', @global_var["js_include"] %>
+  <script>
+    font_url = "http://cdn.jsdelivr.net/font-nanum/1.0/nanumbarungothic/nanumbarungothic.css";
+    if(!Cookies("fonts-nanumbarun")) {
+      loadCSS(font_url);
+      Cookies.set("fonts-nanumbarun", font_url, {expires: 3600*24*180});
+    }
+  </script>
+  <!--[if lt IE 10]>
+  <%= javascript_include_tag 'placeholders' %>
+  <![endif]-->
+  <%= csrf_meta_tags %>
+</head>
+
+<body class="page-md page-header-fixed <%="#{params[:controller].parameterize} #{params[:action]}"%>" ng-controller="MainCtrl">
+  <%= render "fragment/admin/header" %>
+  <div class="page-container" ng-controller="<%="#{params[:controller].split("/").map{|a| if a.split("_").size != 0 then a.split("_").map{|b| b.capitalize}.join else a.capitalize end}.join}#{params[:action].split("_").map{|a| a.capitalize}.join}"%>">
+    <%= render "fragment/admin/sidebar" %>
+    <div class="page-content-wrapper">
+      <div class="page-content">
+        <%= yield %>
+      </div>
+    </div>
+  </div>
+  <hidden></hidden>
+</body>
+</html>
