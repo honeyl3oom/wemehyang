@@ -19,4 +19,6 @@
         d = "0" + d
       return y + "-" + m + "-" + d
     return
+    this.nl2br = (target) ->
+      return if target then target.replace(/\r?\n/g, "<br>") else ""
   ])

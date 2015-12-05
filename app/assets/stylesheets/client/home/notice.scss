@@ -1,4 +1,4 @@
-@import 'config-client';
+@import 'base-client';
 
 .top-bg {
   background-image:url($image-path+"/ex/customer_top_img.jpg");
@@ -27,20 +27,26 @@
   }
 }
 .content-cont {
-  padding:30px 0 50px;
-  width:900px;
+  padding:30px 15px 50px;
+  width:100%;
+  max-width:900px;
   margin:0 auto;
   .indexes {
-    margin:35px 0;
+    margin-bottom:20px;
     .m {
-      width:438px;
-      margin-right:20px;
+      width:48%;
       border:1px solid #000;
       color:#000;
       display:inline-block;
       text-align:center;
       padding:10px 0;
       font-size:15px;
+      &:first-child {
+        float:left;
+      }
+      &:last-child {
+        float:right;
+      }
     }
     .m.active, .m:hover {
       background-color:black;
@@ -49,11 +55,21 @@
     .m:last-child {
       margin-right:0;
     }
+    &:before, &:after {
+      display:table;
+      content:" ";
+      clear:both;
+    }
+  }
+}
+
+@media screen and (max-width: $mobile-width) {
+  .content-cont {
+    padding:20px 15px 30px;
   }
 }
 
 .list {
-  margin-top:35px;
   .notice {
     cursor : pointer;
     text-align : left;

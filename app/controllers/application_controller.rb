@@ -30,7 +30,8 @@ class ApplicationController < ActionController::Base
 
     gon.global_vars = {
       "web_img_path" => @web_img_path,
-      "is_mobile" => check_mobile
+      "is_mobile" => check_mobile,
+      "mobile_width" => 750,
     }
   end
 

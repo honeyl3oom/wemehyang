@@ -1,5 +1,6 @@
 //=require jquery
 //=require angular
+//=require angular-animate
 //=require angular-touch
 //=require angular-sanitize
 //=require angular-ui-bootstrap-bower
@@ -7,6 +8,5 @@
 //=require angular/directives
 //=require angular/services
 //=require angular/filters
-//=require lib/cookie
-//=require lib/loadCSS
-//=require client/init
+//=require loadcss
+//=require Cookies

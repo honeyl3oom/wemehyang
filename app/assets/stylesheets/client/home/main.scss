@@ -1,4 +1,4 @@
-@import 'config-client';
+@import 'base-client';
 @import 'lib/set-blueimp';
 
 /* top-image start */
@@ -66,7 +66,7 @@
       position:relative;
       margin-left:0 !important;
       li {
-        @include inline-block;
+        display:inline-block;
         @include border-radius(4px);
         width:8px;
         height:8px;
@@ -77,6 +77,13 @@
       li.active {
         background-color:#fff;
       }
+    }
+  }
+}
+.mobile-os {
+  .top-image {
+    .arrow {
+      display:none;
     }
   }
 }
@@ -92,6 +99,15 @@
       margin-right:-485px;
     }
     
+  }
+}
+@media screen and (max-width:$mobile-width) {
+  .top-image {
+    .carousel-inner {
+      .image {
+        height:200px;
+      }
+    }
   }
 }
 #top-carousel-images {
@@ -129,6 +145,8 @@
         .ctt {
           display:block;
           text-align:center;
+          position:relative;
+          top:47%;
           .tit {
             color:white;
             font-size:30px;
@@ -177,5 +195,47 @@
     margin-top:20px;
     width:100%;
     height:400px;
+  }
+}
+
+@media screen and (max-width:$mobile-width) {
+  .bot {
+    padding:15px 0;
+    .cont {
+      padding:0 15px;
+    }
+    .mn {
+      width:100%;
+      margin-bottom:15px;
+      height:206px;
+      &:first-child {
+        margin-right:0;
+      }
+      &:last-child {
+        margin-bottom:0;
+      }
+      .bg {
+        .alpha {
+          .ctt {
+            top:41%;
+            .tit {
+              font-size:25px;
+            }
+            i {
+              font-size:27px;
+            }
+
+          }
+        }
+      }
+    }
+
+    .map-cont {
+      margin-top:0;
+      h1 {
+        font-size:18px;
+        line-height:24px;
+      }
+    }
   }
 }

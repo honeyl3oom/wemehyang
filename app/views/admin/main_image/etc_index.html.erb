@@ -1,0 +1,40 @@
+<div class="page-head">
+  <div class="page-title">
+    <h1>
+      메인 하단 배경이미지 관리
+    </h1>
+  </div>
+</div>
+<div class="note note-info note-shadow">
+  메인페이지 하단 : 펜션둘러보기-> , 관광지-> 의 배경이미지를 변경하는 곳입니다.<br>
+  첨부하시면 하단에 Submit 버튼을 눌러주세요
+</div>
+
+<div class="cont">
+  <div class="item">
+    <label>펜션둘러보기 배경</label>
+    <div class="ctt">
+      <div class="image" ng-style="{'background-image':'url({{ps_info.p_image}})'}" ng-if="!gh.blank(ps_info.p_image)"></div>
+      <div class="file-status" ng-show="!gh.blank(attach_file[0])">새로 첨부한 파일 : {{attach_file[0]}}</div>
+      <button type="button" class="btn blue" ng-click="click_file('p')">첨부하기</button>
+    </div>
+  </div>
+
+  <div class="item">
+    <label>관광지 배경</label>
+    <div class="ctt">
+      <div class="image" ng-style="{'background-image':'url({{ps_info.t_image}})'}" ng-if="!gh.blank(ps_info.t_image)"></div>
+      <div class="file-status" ng-show="!gh.blank(attach_file[1])">새로 첨부한 파일 : {{attach_file[1]}}</div>
+      <button type="button" class="btn blue" ng-click="click_file('t')">첨부하기</button>
+    </div>
+  </div>
+
+  <button type="button" class="btn green" ng-click="submit()">Submit</button>
+</div>
+
+<div class="hidden">
+<%= form_tag admin_main_image_etc_update_path, method: :put, role:'form', multipart:true, class:"hidden submit-form" do %> 
+  <input type="file" name="p_image" class="p-input">
+  <input type="file" name="t_image" class="t-input">
+<% end %>
+</div>

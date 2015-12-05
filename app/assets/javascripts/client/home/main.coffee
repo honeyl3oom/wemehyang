@@ -1,8 +1,9 @@
 #=require lib/set-blueimp-gallery
 #=require client/base-default
 
-@my_app.controller("ClientHomeMain", ['$scope', '$window', ($scope, $window)->
+@app.controller("ClientHomeMain", ['$scope', '$window', ($scope, $window)->
   $scope.main_images = gon.main_images
+  console.log $scope.main_images
   $scope.show_carousel_image = (idx) ->
     $("#top-carousel-images a:nth-child("+(idx+1)+") img").click()
     return

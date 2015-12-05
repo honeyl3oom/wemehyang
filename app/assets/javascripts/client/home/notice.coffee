@@ -1,7 +1,6 @@
 #=require client/base-default
 
-@my_app.controller("ClientHomeNotice", ['$scope', '$window', 'globalHelper', ($scope, $window, globalHelper)->
-  $scope.ghelper = globalHelper
+@app.controller("ClientHomeNotice", ['$scope', '$window', ($scope, $window)->
   $scope.notices = [
     {
       title:"안녕하세요, 위미향입니다."

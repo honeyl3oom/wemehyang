@@ -1,4 +1,4 @@
-@my_global
+@app_global
   .directive('url',["$window", ($window)->
     return {
       restrict: 'A',

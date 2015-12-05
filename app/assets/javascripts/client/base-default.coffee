@@ -1,5 +1,7 @@
-@my_app = angular.module('psApp', [
+@app = angular.module('psApp', [
+  'ngAnimate',
+  'ngTouch',
+  'ngSanitize',
   'ui.bootstrap',
   'ps.global',
-  'ngSanitize',
 ])

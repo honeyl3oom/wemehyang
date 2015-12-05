@@ -23,8 +23,8 @@
         </div>
         <span class="date">{{notice.created}}</span>
       </div>
-      <div class="notice-content" ng-show="!notice.collapsed">
-        <div class="content html-content" ng-bind-html="ghelper.html_view(notice.content)"></div>
+      <div class="notice-content" uib-collapse="notice.collapsed">
+        <div class="content html-content" ng-bind-html="gh.html_view(notice.content)"></div>
       </div>
     </div>
   </div>

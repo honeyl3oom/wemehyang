@@ -1,2 +1,2 @@
-#= require blueimp-gallery
-#= require blueimp-gallery-fullscreen
+#= require blueimp-gallery/blueimp-gallery
+#= require blueimp-gallery/blueimp-gallery-fullscreen

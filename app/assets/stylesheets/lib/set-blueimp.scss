@@ -1,8 +1,9 @@
 @import 'blueimp-gallery';
+
 .image-gallery {
-  @include inline-block;
+  display:inline-block;
   .photo {
-    @include inline-block;
+    display:inline-block;
     position:relative;
     margin-right:6px;
     margin-bottom:6px;

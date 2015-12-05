@@ -12,3 +12,6 @@
 !/log/.keep
 /tmp
 *.swp
+/public/uploads/*
+!/public/uploads/web_images
+!/public/uploads/fonts

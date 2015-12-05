@@ -1,7 +1,6 @@
 #=require client/base-default
 
-@my_app.controller("ClientHomeFaq", ['$scope', '$window', 'globalHelper', ($scope, $window, globalHelper)->
-  $scope.ghelper = globalHelper
+@app.controller("ClientHomeFaq", ['$scope', '$window', ($scope, $window)->
   $scope.notices = [
     {
       title:"요금결제 방식은 어떻게 되나요?"

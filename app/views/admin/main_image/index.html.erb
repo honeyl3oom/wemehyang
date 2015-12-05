@@ -1,0 +1,50 @@
+<div class="page-head">
+  <div class="page-title">
+    <h1>
+      메인 상단 이미지 관리
+    </h1>
+  </div>
+</div>
+<div class="note note-info note-shadow">
+  메인 상단이미지를 추가/수정 할 수 있습니다.<br>
+  그림 순서는 drag and drop 으로 순서를 맞춘후, 순서변경 버튼을 눌러주시면 반영됩니다.
+</div>
+
+<div class="portlet light">
+  <div class="portlet-title">
+    <div class="actions">
+      <button type="button" class="btn green-meadow" url="<%=admin_main_image_new_path%>">등록</button>
+      <button type="button" class="btn btn-warning" ng-click="order_update()">순서 업데이트</button>
+    </div>
+  </div>
+  <div class="portlet-body">
+    <div class="row">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>No.</th>
+            <th>이미지</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody ui-sortable ng-model="images">
+          <tr class="empty" ng-if="images.length == 0">
+            <td colspan="4">등록된 이미지가 없습니다.</td>
+          </tr>
+          <tr ng-repeat="i in images">
+            <td>{{$index+1}}</td> 
+            <td><div class="image" ng-style="{'background-image':'url({{i.url}})'}"></td>
+            <td>
+              <button type="button" class="btn btn-warning" url="{{i.edit_url}}">수정</button>
+              <button type="button" class="btn btn-danger" ng-click="delete(i)">삭제</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<%= form_tag admin_main_image_order_path, method: :put, role:'form', class:"hidden order-form" do %> 
+  <%=hidden_field_tag :image_ids, "" %>
+<% end %>

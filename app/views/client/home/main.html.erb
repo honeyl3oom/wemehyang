@@ -1,10 +1,10 @@
 <div class="top-image">
-  <carousel interval="5000">
-    <slide ng-repeat="i in main_images" ng-click="show_carousel_image($index)">
+  <uib-carousel interval="0">
+    <uib-slide ng-repeat="i in main_images" ng-click="show_carousel_image($index)">
       <div class="backdrop"></div>
       <div class="image" ng-style="{'background-image':'url({{i.url}})'}"></div>
-    </slide>
-  </carousel>
+    </uib-slide>
+  </uib-carousel>
 </div>
 <div id="top-carousel-images" blueimp-gallery-img>
   <a href="{{img.url}}" ng-repeat="img in main_images">
@@ -18,7 +18,7 @@
       <div class="mn l" url="<%=room_index_path%>">
         <div class="bg">
           <div class="alpha">
-            <div class="ctt" vertical-center=".alpha">
+            <div class="ctt">
               <span class="tit">펜션둘러보기</span><i class="fa fa-arrow-right fa-3x"></i>
             </div>
           </div>
@@ -27,7 +27,7 @@
       <div class="mn r" url="<%=client_special_path%>">
         <div class="bg">
           <div class="alpha">
-            <div class="ctt" vertical-center=".alpha">
+            <div class="ctt">
               <span class="tit">특별함</span><i class="fa fa-arrow-right fa-3x"></i>
             </div>
           </div>
@@ -44,7 +44,6 @@
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBADvtOR6liHI-bMgBVuewbmE1KA3JR9js&callback=initMap" async defer></script>
 
-
 <script id="template/carousel/carousel.html" type="text/ng-template">
   <div ng-mouseenter="pause()" ng-mouseleave="play()" class="carousel" ng-swipe-right="prev()" ng-swipe-left="next()">
     <div class="indicator-container">
@@ -59,12 +58,4 @@
     </div>
   </div>
 </script>
-<script id="template/carousel/slide.html" type="text/ng-template">
-  <div ng-class="{
-    'active': leaving || (active && !entering),
-    'prev': (next || active) && direction=='prev',
-    'next': (next || active) && direction=='next',
-    'right': direction=='prev',
-    'left': direction=='next'
-  }" class="item" ng-transclude></div>
-</script>
+

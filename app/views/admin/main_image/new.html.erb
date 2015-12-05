@@ -1,0 +1,13 @@
+<div class="page-head">
+  <div class="page-title">
+    <h1>
+      메인 상단 이미지 등록
+    </h1>
+  </div>
+</div>
+<div class="note note-info note-shadow">
+  이미지 등록하는 곳
+</div>
+
+<%=render partial: "form", locals: {obj:@main_image, url: admin_main_image_create_path, method: :post}%>
+
