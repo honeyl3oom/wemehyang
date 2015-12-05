@@ -9,6 +9,6 @@ Rails.application.config.assets.version = '1.0'
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 Rails.application.config.assets.paths << Rails.root.join("lib")
-Rails.application.config.assets.precompile += ['application-client.js']
-Rails.application.config.assets.precompile += ['client/*']
-Rails.application.config.assets.precompile += ['lib/placeholders.min.js']
+Rails.application.config.assets.precompile += ['application-client.js', 'application-admin.js']
+Rails.application.config.assets.precompile += ['client/*', 'admin/*']
+Rails.application.config.assets.precompile += ['placeholders.js']

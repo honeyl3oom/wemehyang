@@ -9,6 +9,6 @@ Rails.application.routes.draw do
 
 
   namespace :admin do
-    get "" => 'admin/home#index', as: :admin_home
+    get "" => 'home#index', as: :home
   end
 end
