@@ -1,0 +1,50 @@
+<div class="page-head">
+  <div class="page-title">
+    <h1>
+      공지사항 관리
+    </h1>
+  </div>
+</div>
+<div class="note note-info note-shadow">
+  공지사항 관리하는 곳
+</div>
+
+<div class="portlet light">
+  <div class="portlet-title">
+    <div class="actions">
+      <button type="button" class="btn green-meadow" url="<%=admin_notice_new_path%>">등록</button>
+    </div>
+  </div>
+  <div class="portlet-body">
+    <div class="row">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>상태</th>
+            <th>제목</th>
+            <th>등록일</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="empty" ng-if="notices.length == 0">
+            <td colspan="3">등록된 공지가 없습니다.</td>
+          </tr>
+          <tr ng-repeat="n in notices" url="{{n.edit_url}}">
+            <td>{{n.id}}</td> 
+            <td>{{n.is_public ? "공개" : "비공개"}}</td>
+            <td>{{n.title}}</td>
+            <td>
+              {{n.created_at}}
+            </td>
+            <td>
+              <button type="button" class="btn blue" url="{{n.edit_url}}">수정</button>
+              <button type="button" class="btn btn-dagner" ng-click="delete(n)">삭제</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

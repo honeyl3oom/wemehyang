@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   get '/' => 'client/home#main', as: :client_home
   get '/room/index' => 'client/room#index', as: :room_index
   get '/room/view' => 'client/room#view', as: :room_view
-  get '/special' => 'client/home#special', as: :client_special
   get '/tour' => 'client/home#tour', as: :client_tour
   get '/notice' => 'client/home#notice', as: :client_notice
   get '/faq' => 'client/home#faq', as: :client_faq
@@ -23,14 +22,17 @@ Rails.application.routes.draw do
     get "notice/index" => "notice#index", as: :notice_index
     get "notice/new" => "notice#new", as: :notice_new
     post "notice/create" => "notice#create", as: :notice_create
-    get "notice/edit" => "notice#edit", as: :notice_edit
-    put "notice/update" => "notice#update", as: :notice_update
+    get "notice/:id/edit" => "notice#edit", as: :notice_edit
+    put "notice/:id/update" => "notice#update", as: :notice_update
+    get "notice/:id/destroy" => "notice#destroy", as: :notice_destroy
 
     get "faq/index" => "faq#index", as: :faq_index
     get "faq/new" => "faq#new", as: :faq_new
     post "faq/create" => "faq#create", as: :faq_create
-    get "faq/edit" => "faq#edit", as: :faq_edit
-    put "faq/update" => "faq#update", as: :faq_update
+    get "faq/:id/edit" => "faq#edit", as: :faq_edit
+    put "faq/:id/update" => "faq#update", as: :faq_update
+    get "faq/:id/destroy" => "faq#destroy", as: :faq_destroy
+    put "faq/order_update" => "faq#order_update", as: :faq_order_update
   end
 
 end

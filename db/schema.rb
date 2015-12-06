@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151205203855) do
+ActiveRecord::Schema.define(version: 20151206135606) do
 
   create_table "faqs", force: :cascade do |t|
     t.string   "title",      limit: 255
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20151205203855) do
     t.boolean  "is_public",                default: true
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "priority",   limit: 4,     default: 99
   end
 
   create_table "main_images", force: :cascade do |t|

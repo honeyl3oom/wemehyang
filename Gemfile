@@ -27,6 +27,10 @@ source 'http://rails-assets.org' do
   gem 'rails-assets-normalize-css'
   gem 'rails-assets-angular-animate'
 
+  gem 'rails-assets-summernote'
+  gem 'rails-assets-angular-summernote'
+  gem 'rails-assets-codemirror'
+
   gem 'rails-assets-angular-ui-bootstrap-bower'
   gem 'rails-assets-font-awesome', '~> 4.4.0'
   gem 'rails-assets-placeholders'

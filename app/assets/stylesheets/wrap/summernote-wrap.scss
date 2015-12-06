@@ -1,0 +1,12 @@
+@import "summernote/summernote";
+@import "summernote/summernote-bs3";
+@import "codemirror";
+
+.note-editable {
+  line-height:21px;
+  p {
+    margin:0;
+    font-size:15px;
+    line-height:inherit;
+  }
+}
