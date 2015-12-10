@@ -3,6 +3,6 @@ class Time
     self.strftime("%F %T")
   end
   def to_dtime
-    self.strftime("%f")
+    self.strftime("%F")
   end
 end

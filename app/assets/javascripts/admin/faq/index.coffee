@@ -1,5 +1,5 @@
 #= require angular/lib/set-sortable
-@app = angular.module('csApp', [
+@app = angular.module('psApp', [
   'ps.global',
   'ui.bootstrap',
   'ui.sortable',

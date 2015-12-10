@@ -6,12 +6,8 @@
   'summernote',
 ])
 
-@app.controller("AdminNoticeNew", ["$scope", "$window", ($scope, $window)->
-  $scope.request_form = {
-    title: ""
-    content: ""
-    is_public: "1"
-  }
+@app.controller("AdminFaqEdit", ["$scope", "$window", ($scope, $window)->
+  $scope.request_form = gon.faq
 
   $scope.summernote_config = summernote_config
 
@@ -25,12 +21,12 @@
       $window.alert "내용을 입력해주세요"
       return false
 
-    pre = "#notice_"
+    pre = "#faq_"
     $(pre+"title").val(form.title)
     $(pre+"content").val(form.content)
     $(pre+"is_public").val(form.is_public)
 
-    $(".notice-form").submit()
+    $(".faq-form").submit()
     return
 
 ])

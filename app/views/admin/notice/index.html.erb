@@ -29,9 +29,9 @@
         </thead>
         <tbody>
           <tr class="empty" ng-if="notices.length == 0">
-            <td colspan="3">등록된 공지가 없습니다.</td>
+            <td colspan="5">등록된 공지가 없습니다.</td>
           </tr>
-          <tr ng-repeat="n in notices" url="{{n.edit_url}}">
+          <tr ng-repeat="n in notices">
             <td>{{n.id}}</td> 
             <td>{{n.is_public ? "공개" : "비공개"}}</td>
             <td>{{n.title}}</td>

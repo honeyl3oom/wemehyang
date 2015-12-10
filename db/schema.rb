@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151206135606) do
+ActiveRecord::Schema.define(version: 20151210153131) do
 
   create_table "faqs", force: :cascade do |t|
     t.string   "title",      limit: 255
@@ -20,6 +20,13 @@ ActiveRecord::Schema.define(version: 20151206135606) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "priority",   limit: 4,     default: 99
+  end
+
+  create_table "images", force: :cascade do |t|
+    t.string   "image",      limit: 255
+    t.boolean  "tmp_flag",               default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "main_images", force: :cascade do |t|

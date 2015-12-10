@@ -1,6 +1,6 @@
 class Admin::NoticeController < AdminController
   def index
-    gon.notices = Notice.where(is_public: true).collect{|n| 
+    gon.notices = Notice.all.collect{|n| 
       {
         :id => n.id,
         :title => n.title,
@@ -17,6 +17,7 @@ class Admin::NoticeController < AdminController
   end
 
   def create
+    params[:notice][:content] = editor_parse(params[:notice][:content])
     if(a = Notice.create(notice_params)).nil?
       redirect_to admin_notice_new_path, alert: "오류가 발생했습니다."
     end
@@ -30,6 +31,7 @@ class Admin::NoticeController < AdminController
     end
     gon.notice = {
       :title => @notice.title,
+      :is_public => @notice.is_public ? "1" : "0",
       :content => @notice.content,
     }
   end
@@ -39,10 +41,11 @@ class Admin::NoticeController < AdminController
     if @notice.nil?
       redirect_to admin_notice_index_path, alert: "존재하지 않는 공지사항입니다."
     end
+    params[:notice][:content] = editor_parse(params[:notice][:content])
     if !@notice.update_attributes(notice_params)
       redirect_to admin_notice_edit_path(params[:id]), alert: "오류가 발생했습니다."
     end
-    redirect_to admin_notice_index_path, alert: "성공적으로 등록되었습니다."
+    redirect_to admin_notice_index_path, alert: "성공적으로 업데이트 되었습니다."
   end
 
   def destroy

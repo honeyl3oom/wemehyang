@@ -6,7 +6,7 @@
   'summernote',
 ])
 
-@app.controller("AdminNoticeNew", ["$scope", "$window", ($scope, $window)->
+@app.controller("AdminFaqNew", ["$scope", "$window", ($scope, $window)->
   $scope.request_form = {
     title: ""
     content: ""
@@ -25,12 +25,12 @@
       $window.alert "내용을 입력해주세요"
       return false
 
-    pre = "#notice_"
+    pre = "#faq_"
     $(pre+"title").val(form.title)
     $(pre+"content").val(form.content)
     $(pre+"is_public").val(form.is_public)
 
-    $(".notice-form").submit()
+    $(".faq-form").submit()
     return
 
 ])

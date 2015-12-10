@@ -45,7 +45,7 @@
         <div class="form-group">
           <div class="col-md-offset-3 col-md-9">
             <button type="button" class="btn green" ng-click="submit(request_form)">Submit</button>
-            <button type="button" class="btn default" url="<%=admin_notice_index_path%>">Cancel</button>
+            <button type="button" class="btn default" url="<%=admin_faq_index_path%>">Cancel</button>
           </div>
         </div>
       </div>
@@ -54,7 +54,7 @@
 </div>
 
 <div class="hidden">
-<%= form_for [obj], url: url, role:"form", html:{class:"notice-form",  multipart:true}, method: method do |f| %>
+<%= form_for [obj], url: url, role:"form", html:{class:"faq-form",  multipart:true}, method: method do |f| %>
   <%= f.hidden_field :title %>
   <%= f.hidden_field :content %>
   <%= f.hidden_field :is_public %>

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/notice' => 'client/home#notice', as: :client_notice
   get '/faq' => 'client/home#faq', as: :client_faq
 
+  post "/ajax/tmp_upload" => 'ajax/home#tmp_upload', as: :ajax_tmp_upload
   namespace :admin do
     get "" => 'home#index', as: :home
     get "main_image/index" => "main_image#index", as: :main_image_index

@@ -1,6 +1,6 @@
 #=require admin/base-default
 
-@app.controller("AdminNoticeIndex", ["$scope", ($scope)->
+@app.controller("AdminNoticeIndex", ["$scope", "$window", ($scope, $window)->
   $scope.notices = gon.notices
 
   $scope.delete = (f) ->

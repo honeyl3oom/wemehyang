@@ -1,9 +1,10 @@
 class Admin::FaqController < AdminController
   def index
-    gon.faqs = Faq.where(is_public: true).collect{|n| 
+    gon.faqs = Faq.all.collect{|n| 
       {
         :id => n.id,
         :title => n.title,
+        :is_public => n.is_public,
         :created_at => n.created_at.to_dtime,
         :edit_url => admin_faq_edit_path(n.id),
         :delete_url => admin_faq_destroy_path(n.id),
@@ -12,8 +13,11 @@ class Admin::FaqController < AdminController
   end
 
   def order_update
-    params[:faq_ids].split(",").each do |id|
+    params[:faq_ids].split(",").each_with_index do |id, idx|
+      f = Faq.find_by_id(id)
+      f.update_attributes(priority: idx+1)if !f.nil?
     end
+    redirect_to admin_faq_index_path, alert: "순서가 변경되었습니다."
   end
 
   def new
@@ -21,6 +25,7 @@ class Admin::FaqController < AdminController
   end
 
   def create
+    params[:faq][:content] = editor_parse(params[:faq][:content])
     if(a = Faq.create(faq_params)).nil?
       redirect_to admin_faq_new_path, alert: "오류가 발생했습니다."
     end
@@ -35,6 +40,7 @@ class Admin::FaqController < AdminController
     gon.faq = {
       :title => @faq.title,
       :content => @faq.content,
+      :is_public => @faq.is_public ? "1" : "0",
       :created_at => @faq.created_at.to_dtime,
     }
   end
@@ -44,10 +50,11 @@ class Admin::FaqController < AdminController
     if @faq.nil?
       redirect_to admin_faq_index_path, alert: "존재하지 않는 공지사항입니다."
     end
+    params[:faq][:content] = editor_parse(params[:faq][:content])
     if !@faq.update_attributes(faq_params)
       redirect_to admin_faq_edit_path(params[:id]), alert: "존재하지 않는 공지사항입니다."
     end
-    redirect_to admin_faq_index_path, alert: "성공적으로 등록되었습니다."
+    redirect_to admin_faq_index_path, alert: "성공적으로 업데이트 되었습니다."
   end
 
   def destroy
