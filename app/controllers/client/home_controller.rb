@@ -10,8 +10,25 @@ class Client::HomeController < ClientController
   end
 
   def notice
+    gon.notices = Notice.where(is_public: true).collect { |n|
+      {
+        :title => n.title,
+        :content => n.content,
+        :created => n.created_at.to_dtime,
+        :collapsed => true,
+      }
+
+    }
   end
 
   def faq
+    gon.faqs = Faq.where(is_public: true).collect { |n|
+      {
+        :title => n.title,
+        :content => n.content,
+        :collapsed => true,
+      }
+
+    }
   end
 end
