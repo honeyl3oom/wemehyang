@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151213030952) do
+ActiveRecord::Schema.define(version: 20151213041706) do
 
   create_table "faqs", force: :cascade do |t|
     t.string   "title",      limit: 255
@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(version: 20151213030952) do
     t.string   "top_bg_tour",        limit: 255
     t.string   "top_bg_reservation", limit: 255
     t.string   "top_bg_customer",    limit: 255
+    t.string   "password_digest",    limit: 255
   end
 
   create_table "tours", force: :cascade do |t|

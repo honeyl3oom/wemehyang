@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   post "/ajax/tmp_upload" => 'ajax/home#tmp_upload', as: :ajax_tmp_upload
   namespace :admin do
     get "" => 'home#index', as: :home
+    get "login" => "home#login", as: :login
+    get "logout" => "home#logout", as: :logout
+    post "login" => "home#login_request", as: :login_request
     get "main_image/index" => "main_image#index", as: :main_image_index
     get "main_image/new" => "main_image#new", as: :main_image_new
     post "main_image/create" => "main_image#create", as: :main_image_create

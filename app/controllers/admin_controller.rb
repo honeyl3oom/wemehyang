@@ -1,5 +1,6 @@
 class AdminController < ApplicationController
   layout "admin"
+  before_filter :authorize
   before_filter :admin_set_variables
 
   def admin_set_variables
@@ -17,5 +18,9 @@ class AdminController < ApplicationController
       "공지사항관리" => [{:icon => "icon-note"}, [admin_notice_index_path, admin_notice_new_path, admin_notice_edit_path(id)]],
       "FAQ관리" => [{:icon => "icon-speech"}, [admin_faq_index_path, admin_faq_new_path, admin_faq_edit_path(id)]],
     }
+  end
+
+  def authorize
+    redirect_to admin_login_path, alert: "관리자 로그인이 필요합니다" if !session[:is_admin]
   end
 end

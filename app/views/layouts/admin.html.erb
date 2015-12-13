@@ -31,15 +31,19 @@
 </head>
 
 <body class="page-md page-header-fixed <%="#{params[:controller].parameterize} #{params[:action]}"%>" ng-controller="MainCtrl">
-  <%= render "fragment/admin/header" %>
-  <div class="page-container" ng-controller="<%="#{params[:controller].split("/").map{|a| if a.split("_").size != 0 then a.split("_").map{|b| b.capitalize}.join else a.capitalize end}.join}#{params[:action].split("_").map{|a| a.capitalize}.join}"%>">
-    <%= render "fragment/admin/sidebar" %>
-    <div class="page-content-wrapper">
-      <div class="page-content">
-        <%= yield %>
+  <% if @no_layout %>
+    <%= yield %>
+  <% else %>
+    <%= render "fragment/admin/header" %>
+    <div class="page-container" ng-controller="<%="#{params[:controller].split("/").map{|a| if a.split("_").size != 0 then a.split("_").map{|b| b.capitalize}.join else a.capitalize end}.join}#{params[:action].split("_").map{|a| a.capitalize}.join}"%>">
+      <%= render "fragment/admin/sidebar" %>
+      <div class="page-content-wrapper">
+        <div class="page-content">
+          <%= yield %>
+        </div>
       </div>
     </div>
-  </div>
+  <% end %>
   <hidden></hidden>
 </body>
 </html>

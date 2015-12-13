@@ -1,5 +1,27 @@
 class Admin::HomeController < AdminController
+  skip_before_filter :authorize, :only => [:login, :login_request]
   def index
+  end
+
+  def login
+    @no_layout = true
+  end
+
+  def logout
+    reset_session
+    redirect_to admin_login_path, alert: "정상적으로 로그아웃 되었습니다."
+  end
+
+  def login_request
+    p = PsInfo.take
+    logger.debug "@@#{params[:admin_pw]}"
+    if !p.authenticate(params[:admin_pw])
+      redirect_to admin_login_path, alert: "비밀번호가 일치하지 않습니다."
+      return
+    else
+      session[:is_admin] = true
+    end
+    redirect_to admin_home_path
   end
 
   def reserve
