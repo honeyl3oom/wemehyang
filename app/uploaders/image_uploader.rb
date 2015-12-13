@@ -12,11 +12,11 @@ class ImageUploader < CarrierWave::Uploader::Base
 
 
   version :thumb do
-    process :resize_to_limit => [nil, 480]
+    process :resize_to_limit => [2048, nil]
   end
 
   version :small do
-    process :resize_to_limit => [nil, 200]
+    process :resize_to_limit => [1024, nil]
   end
 
   # Override the filename of the uploaded files:
