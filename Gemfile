@@ -45,7 +45,7 @@ end
 gem 'bcrypt', '~> 3.1.7'
 
 # Use Unicorn as the app server
-gem 'rmagick'
+gem 'rmagick', '~> 2.15.4'
 gem 'carrierwave'
 gem 'nokogiri'
 gem 'nokogiri-styles'
