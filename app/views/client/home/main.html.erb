@@ -1,5 +1,5 @@
 <div class="top-image">
-  <uib-carousel interval="0">
+  <uib-carousel interval="5000">
     <uib-slide ng-repeat="i in main_images" ng-click="show_carousel_image($index)">
       <div class="backdrop"></div>
       <div class="image" ng-style="{'background-image':'url({{i.url}})'}"></div>

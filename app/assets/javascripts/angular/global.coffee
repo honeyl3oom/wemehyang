@@ -37,10 +37,3 @@
 
   ])
 
-jQuery(document).ready(($)->
-  $("a[href='#']").click((e)->
-    alert "준비중입니다"
-    e.preventDefault()
-    e.stopPropagation()
-  )
-)

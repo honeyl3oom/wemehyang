@@ -13,7 +13,7 @@ class AdminController < ApplicationController
         "메인하단이미지" => [admin_main_image_etc_index_path],
         "메뉴별상단이미지" => [admin_top_bg_index_path],
       }],
-      "예약페이지관리" => [{:icon => "icon-docs"}, [admin_reserve_edit_path]],
+      #"예약페이지관리" => [{:icon => "icon-docs"}, [admin_reserve_edit_path]],
       "관광지관리" => [{:icon => "icon-direction"}, [admin_tour_index_path, admin_tour_new_path, admin_tour_edit_path(id)]],
       "공지사항관리" => [{:icon => "icon-note"}, [admin_notice_index_path, admin_notice_new_path, admin_notice_edit_path(id)]],
       "FAQ관리" => [{:icon => "icon-speech"}, [admin_faq_index_path, admin_faq_new_path, admin_faq_edit_path(id)]],

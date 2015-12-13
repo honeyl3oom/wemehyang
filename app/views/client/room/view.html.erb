@@ -1,11 +1,4 @@
-<div class="top-bg">
-  <div class="backdrop">
-    <div class="ctt" vertical-center=".backdrop">
-      <span>아름다운 향기의 추억</span>
-      <span>위미향</span>
-    </div>
-  </div>
-</div>
+<%= render "fragment/client/top" %>
 
 <div class="content-cont">
   <div class="room-title">
@@ -14,12 +7,12 @@
   </div>
 
   <div class="top-image">
-    <carousel interval="5000">
-      <slide ng-repeat="i in room_images" ng-click="show_carousel_image($index)">
+    <uib-carousel interval="5000">
+      <uib-slide ng-repeat="i in room_images" ng-click="show_carousel_image($index)">
         <div class="backdrop"></div>
-        <div class="image" ng-style="{'background-image':'url({{i.url}})'}"></div>
-      </slide>
-    </carousel>
+        <div class="image" ng-style="{'background-image':'url({{i}})'}"></div>
+      </uib-slide>
+    </uib-carousel>
   </div>
   <div id="top-carousel-images" blueimp-gallery-img>
     <a href="{{img.url}}" ng-repeat="img in room_images">
@@ -54,7 +47,7 @@
   </div>
 
   <div class="btn-cont">
-    <a href="#">예약하기</a>
+    <a href="<%=client_reserve_path%>">예약하기</a>
     <a href="<%=room_index_path%>">목록으로</a>
   </div>
 
@@ -73,13 +66,4 @@
     <div class="right carousel-control arrow" ng-click="next()" ng-show="slides.length > 1">
     </div>
   </div>
-</script>
-<script id="template/carousel/slide.html" type="text/ng-template">
-  <div ng-class="{
-    'active': leaving || (active && !entering),
-    'prev': (next || active) && direction=='prev',
-    'next': (next || active) && direction=='next',
-    'right': direction=='prev',
-    'left': direction=='next'
-  }" class="item" ng-transclude></div>
 </script>

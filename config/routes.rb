@@ -27,8 +27,8 @@ Rails.application.routes.draw do
     get "top_bg/index" => "home#top_bg_index", as: :top_bg_index
     put "top_bg/update" => "home#top_bg_update", as: :top_bg_update
 
-    get "reserve" => "home#reserve", as: :reserve_edit
-    put "reserve/update" => "home#reserve_update", as: :reserve_update
+    #get "reserve" => "home#reserve", as: :reserve_edit
+    #put "reserve/update" => "home#reserve_update", as: :reserve_update
 
     get "tour/index" => "tour#index", as: :tour_index
     get "tour/new" => "tour#new", as: :tour_new
