@@ -16,6 +16,7 @@ config/secrets.yml
 !/log/.keep
 /tmp
 *.swp
+/public/assets
 /public/uploads/*
 !/public/uploads/web_images
 !/public/uploads/fonts
