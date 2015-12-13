@@ -10,37 +10,15 @@
 
 <div class="content-cont">
   <div class="items">
-    <div class="it">
-      <div class="image"></div>
-      <div class="tit">죽녹원</div>
+    <div class="it" ng-repeat="t in tours">
+      <div class="image" ng-style="{'background-image':'url({{t.image}})'}"></div>
+      <div class="tit">{{t.title}}</div>
       <div class="subtit">
-        <span class="addr">담양읍 향교리 산 37-6</span>
-        <span class="time">소요시간 10분</span>
+        <span class="addr">{{t.addr}}</span>
+        <span class="time">{{t.time}}</span>
       </div>
       <div class="ctt">
-        2.25km의 대나무숲길을 걷다보면 대숲에서 뿜어져나오는 음이온 때문에 마음이 안정되고 청량감을 느낄수있다. 죽녹원 뒷편에 조성된 죽향문화체험마을에는 면양정,송강정,등 정자와 죽로차 제다실 한옥체험장이 있어 담양의 역사와 문화와 맛을 느끼고 체험할수있다.
-      </div>
-    </div>
-    <div class="it">
-      <div class="image"></div>
-      <div class="tit">호시담 VILLA 마당/야외노천탕</div>
-      <div class="subtit">
-        <span class="addr">담양읍 객사리 1</span>
-        <span class="time">소요시간 10분</span>
-      </div>
-      <div class="ctt">
-        천연기념물 366호, 관방제는 300년 이상된 팽나무.느티나무.이팝나무.개서어나무등이 약 2Km에 걸쳐 거대하고 아름다운 풍치름을 이루고 있어 2004년에는 산림청에서 주최하는 "아름다운 숲 전국대회"에서 대상을 차지하였다.
-      </div>
-    </div>
-    <div class="it">
-      <div class="image"></div>
-      <div class="tit">가마골 생태공원</div>
-      <div class="subtit">
-        <span class="addr">용면 용소길 261</span>
-        <span class="time">소요시간 25분</span>
-      </div>
-      <div class="ctt">
-        담양군 용면소재 용추산을 중심으로 4키로 주변을 가마골이라 부르는데 깊은 계곡과 기암괴석이 수려한 경관을 이루고 있어 사시사철 관광객들이 즐겨찾는곳이다.
+        {{t.content}}
       </div>
     </div>
   </div>

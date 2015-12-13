@@ -20,6 +20,14 @@ Rails.application.routes.draw do
     get "main_etc/index" => "main_image#etc_index", as: :main_image_etc_index
     put "main_etc/update" => "main_image#etc_update", as: :main_image_etc_update
 
+    get "tour/index" => "tour#index", as: :tour_index
+    get "tour/new" => "tour#new", as: :tour_new
+    post "tour/create" => "tour#create", as: :tour_create
+    get "tour/:id/edit" => "tour#edit", as: :tour_edit
+    put "tour/:id/update" => "tour#update", as: :tour_update
+    get "tour/:id/destroy" => "tour#destroy", as: :tour_destroy
+    put "tour/order_update" => "tour#order_update", as: :tour_order_update
+
     get "notice/index" => "notice#index", as: :notice_index
     get "notice/new" => "notice#new", as: :notice_new
     post "notice/create" => "notice#create", as: :notice_create

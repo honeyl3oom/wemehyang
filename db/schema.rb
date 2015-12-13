@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151210153131) do
+ActiveRecord::Schema.define(version: 20151213022625) do
 
   create_table "faqs", force: :cascade do |t|
     t.string   "title",      limit: 255
@@ -56,6 +56,18 @@ ActiveRecord::Schema.define(version: 20151210153131) do
     t.string   "main_tour_image",    limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "tours", force: :cascade do |t|
+    t.string   "title",      limit: 255
+    t.string   "image",      limit: 255
+    t.text     "content",    limit: 65535
+    t.boolean  "is_public",                default: true
+    t.integer  "priority",   limit: 4,     default: 99
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "addr",       limit: 255
+    t.string   "time",       limit: 255
   end
 
 end

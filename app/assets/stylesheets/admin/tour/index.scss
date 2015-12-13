@@ -1,0 +1,14 @@
+@import 'base-admin';
+
+td, th {
+  text-align:center;
+}
+
+.image {
+  width:200px;
+  height:100px;
+  display:inline-block;
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size:cover;
+}

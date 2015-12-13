@@ -1,0 +1,86 @@
+<div class="portlet box">
+  <div class="portlet-body form">
+    <form class="form-horizontal" role="form">
+      <div class="form-body">
+        <div class="form-group">
+          <label class="col-md-3 control-label">관광지명</label>
+          <div class="col-md-9">
+            <input type="text" class="form-control" ng-model="request_form.title">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-md-3 control-label">공개여부</label>
+          <div class="col-md-9">
+            <div class="md-radio-inline">
+              <div class="md-radio">
+                <input type="radio" class="md-radiobtn" id="public-1" ng-model="request_form.is_public" value="1">
+                <label for="public-1">
+                  <span></span>
+                  <span class="check"></span>
+                  <span class="box"></span>
+                  공개</label>
+              </div>
+              <div class="md-radio">
+                <input type="radio" class="md-radiobtn" id="public-2" ng-model="request_form.is_public" value="0">
+                <label for="public-2">
+                  <span></span>
+                  <span class="check"></span>
+                  <span class="box"></span>
+                  비공개</label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-md-3 control-label">이미지</label>
+          <div class="col-md-9">
+            <div class="image" ng-style="{'background-image':'url({{request_form.image}})'}" ng-if="!gh.blank(request_form.image)"></div>
+            <div class="file-status" ng-show="!gh.blank(attach_file)">새로 첨부한 파일 : {{attach_file}}</div>
+            <button type="button" class="btn blue" ng-click="click_file()">첨부하기</button>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-md-3 control-label">주소</label>
+          <div class="col-md-9">
+            <input type="text" class="form-control" ng-model="request_form.addr">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-3 control-label">시간</label>
+          <div class="col-md-9">
+            <input type="text" class="form-control" ng-model="request_form.time" placeholder="ex) 소요시간 25분">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-md-3 control-label">내용</label>
+          <div class="col-md-9">
+            <textarea class="form-control" rows="6" ng-model="request_form.content"></textarea>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-md-offset-3 col-md-9">
+            <button type="button" class="btn green" ng-click="submit(request_form)">Submit</button>
+            <button type="button" class="btn default" url="<%=admin_tour_index_path%>">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="hidden">
+<%= form_for [obj], url: url, role:"form", html:{class:"tour-form",  multipart:true}, method: method do |f| %>
+  <%= f.hidden_field :title %>
+  <%= f.file_field :image %>
+  <%= f.hidden_field :addr %>
+  <%= f.hidden_field :time %>
+  <%= f.hidden_field :content %>
+  <%= f.hidden_field :is_public %>
+<% end %>
+</div>
+

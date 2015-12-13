@@ -1,0 +1,12 @@
+<div class="page-head">
+  <div class="page-title">
+    <h1>
+      관광지 수정
+    </h1>
+  </div>
+</div>
+<div class="note note-info note-shadow">
+  관광지 수정하는 곳
+</div>
+
+<%=render partial: "form", locals: {obj:@tour, url: admin_tour_update_path(@tour.id), method: :put}%>

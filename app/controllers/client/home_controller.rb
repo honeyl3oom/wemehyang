@@ -7,6 +7,15 @@ class Client::HomeController < ClientController
   end
 
   def tour
+    gon.tours = Tour.where(is_public: true).collect { |n|
+      {
+        :title => n.title,
+        :image => n.image_url,
+        :addr => n.addr,
+        :time => n.time,
+        :content => n.content,
+      }
+    }
   end
 
   def notice

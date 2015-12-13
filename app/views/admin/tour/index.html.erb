@@ -1,19 +1,19 @@
 <div class="page-head">
   <div class="page-title">
     <h1>
-      FAQ 관리
+      관광지 관리
     </h1>
   </div>
 </div>
 <div class="note note-info note-shadow">
-  FAQ 관리하는 곳<br>
+  관광지 관리하는 곳<br>
   순서 변경은 drag and drop 으로 위치를 바꾼후 상단우측에 순서업데이트버튼을 눌러주세요.
 </div>
 
 <div class="portlet light">
   <div class="portlet-title">
     <div class="actions">
-      <button type="button" class="btn green-meadow" url="<%=admin_faq_new_path%>">등록</button>
+      <button type="button" class="btn green-meadow" url="<%=admin_tour_new_path%>">등록</button>
       <button type="button" class="btn btn-warning" ng-click="order_update()">순서 업데이트</button>
     </div>
   </div>
@@ -24,22 +24,20 @@
           <tr>
             <th>ID</th>
             <th>상태</th>
-            <th>제목</th>
-            <th>등록일</th>
+            <th>관광지명</th>
+            <th>이미지</th>
             <th>Actions</th>
           </tr>
         </thead>
-        <tbody ui-sortable ng-model="faqs">
-          <tr class="empty" ng-if="faqs.length == 0">
-            <td colspan="5">등록된 FAQ가 없습니다.</td>
+        <tbody ui-sortable ng-model="tours">
+          <tr class="empty" ng-if="tours.length == 0">
+            <td colspan="5">등록된 관광지가 없습니다.</td>
           </tr>
-          <tr ng-repeat="f in faqs">
+          <tr ng-repeat="f in tours">
             <td>{{f.id}}</td> 
             <td>{{f.is_public ? "공개" : "비공개"}}</td>
             <td>{{f.title}}</td>
-            <td>
-              {{f.created_at}}
-            </td>
+            <td><div class="image" ng-style="{'background-image':'url({{f.image}})'}"></td>
             <td>
               <button type="button" class="btn blue" url="{{f.edit_url}}">수정</button>
               <button type="button" class="btn btn-dagner" ng-click="delete(f)">삭제</button>
@@ -51,6 +49,6 @@
   </div>
 </div>
 
-<%= form_tag admin_faq_order_update_path, method: :put, role:'form', class:"hidden order-form" do %> 
-  <%=hidden_field_tag :faq_ids, "" %>
+<%= form_tag admin_tour_order_update_path, method: :put, role:'form', class:"hidden order-form" do %> 
+  <%=hidden_field_tag :tour_ids, "" %>
 <% end %>

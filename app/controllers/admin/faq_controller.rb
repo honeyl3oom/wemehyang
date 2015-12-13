@@ -15,7 +15,7 @@ class Admin::FaqController < AdminController
   def order_update
     params[:faq_ids].split(",").each_with_index do |id, idx|
       f = Faq.find_by_id(id)
-      f.update_attributes(priority: idx+1)if !f.nil?
+      f.update_attributes(priority: idx+1) if !f.nil?
     end
     redirect_to admin_faq_index_path, alert: "순서가 변경되었습니다."
   end
