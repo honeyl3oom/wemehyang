@@ -1,3 +1,4 @@
+//=require check-ie
 //=require jquery
 //=require angular
 //=require angular-animate
