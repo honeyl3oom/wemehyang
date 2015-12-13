@@ -11,7 +11,7 @@ class TopUploader < CarrierWave::Uploader::Base
   end
 
   version :thumb do
-    process :resize_to_limit => [1024, nil]
+    process :resize_to_limit => [2048, nil]
   end
 
   # Override the filename of the uploaded files:
