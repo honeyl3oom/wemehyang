@@ -2,6 +2,8 @@
 #=require client/base-default
 
 @my_app.controller("ClientRoomView", ['$scope', '$window', ($scope, $window)->
+  $scope.top_bg = gon.top_bg
+
   $scope.room_images = [
     {url:"/uploads/web_images/ex/room_slide_1.jpg"},
     {url:"/uploads/web_images/ex/room_slide_2.jpg"},

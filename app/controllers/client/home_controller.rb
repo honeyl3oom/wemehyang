@@ -3,10 +3,18 @@ class Client::HomeController < ClientController
     gon.main_images = ["/uploads/web_images/ex/evt_01.jpg", "/uploads/web_images/ex/evt_06.jpg", "/uploads/web_images/ex/evt_03.jpg"].collect{|v| {:url => v}}
   end
 
+  def reserve
+    p = PsInfo.take
+    gon.top_bg = p.top_bg_reservation_url(:thumb)
+    gon.reserve = p.reservation
+  end
+
   def special
   end
 
   def tour
+    p = PsInfo.take
+    gon.top_bg = p.top_bg_tour_url(:thumb)
     gon.tours = Tour.where(is_public: true).collect { |n|
       {
         :title => n.title,
@@ -19,6 +27,8 @@ class Client::HomeController < ClientController
   end
 
   def notice
+    p = PsInfo.take
+    gon.top_bg = p.top_bg_customer_url(:thumb)
     gon.notices = Notice.where(is_public: true).collect { |n|
       {
         :title => n.title,
@@ -31,6 +41,8 @@ class Client::HomeController < ClientController
   end
 
   def faq
+    p = PsInfo.take
+    gon.top_bg = p.top_bg_customer_url(:thumb)
     gon.faqs = Faq.where(is_public: true).collect { |n|
       {
         :title => n.title,

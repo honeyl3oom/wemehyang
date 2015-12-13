@@ -1,0 +1,57 @@
+<div class="page-head">
+  <div class="page-title">
+    <h1>
+      메뉴별 상단 이미지 관리
+    </h1>
+  </div>
+</div>
+<div class="note note-info note-shadow">
+  메뉴별 상단에 뿌려지는 배경이미지를 설정할 수 있습니다.
+</div>
+
+<div class="cont">
+  <div class="item">
+    <label>펜션둘러보기</label>
+    <div class="ctt">
+      <div class="image" ng-style="{'background-image':'url({{images.room_index}})'}" ng-if="!gh.blank(images.room_index)"><div class="backdrop"></div></div>
+      <div class="file-status" ng-show="!gh.blank(attach_file['room_index'])">새로 첨부한 파일 : {{attach_file['room_index']}}</div>
+      <button type="button" class="btn blue" ng-click="click_file('room_index')">첨부하기</button>
+    </div>
+  </div>
+
+  <div class="item">
+    <label>예약</label>
+    <div class="ctt">
+      <div class="image" ng-style="{'background-image':'url({{images.reservation}})'}" ng-if="!gh.blank(images.reservation)"><div class="backdrop"></div></div>
+      <div class="file-status" ng-show="!gh.blank(attach_file['reservation'])">새로 첨부한 파일 : {{attach_file['reservation']}}</div>
+      <button type="button" class="btn blue" ng-click="click_file('reservation')">첨부하기</button>
+    </div>
+  </div>
+
+  <div class="item">
+    <label>관광지</label>
+    <div class="ctt">
+      <div class="image" ng-style="{'background-image':'url({{images.tour}})'}" ng-if="!gh.blank(images.tour)"><div class="backdrop"></div></div>
+      <div class="file-status" ng-show="!gh.blank(attach_file['tour'])">새로 첨부한 파일 : {{attach_file['tour']}}</div>
+      <button type="button" class="btn blue" ng-click="click_file('tour')">첨부하기</button>
+    </div>
+  </div>
+
+  <div class="item">
+    <label>고객센터</label>
+    <div class="ctt">
+      <div class="image" ng-style="{'background-image':'url({{images.customer}})'}" ng-if="!gh.blank(images.customer)"><div class="backdrop"></div></div>
+      <div class="file-status" ng-show="!gh.blank(attach_file['customer'])">새로 첨부한 파일 : {{attach_file['customer']}}</div>
+      <button type="button" class="btn blue" ng-click="click_file('customer')">첨부하기</button>
+    </div>
+  </div>
+
+  <button type="button" class="btn green" ng-click="submit()">Submit</button>
+</div>
+
+<%= form_for [@ps_info], url: admin_top_bg_update_path, role:"form", html:{class:"submit-form hidden",  multipart:true}, method: :put do |f| %>
+  <%= f.file_field :top_bg_room_index, :class => "room_index" %>
+<%= f.file_field :top_bg_reservation, :class => "reservation" %>
+<%= f.file_field :top_bg_tour, :class => "tour" %>
+<%= f.file_field :top_bg_customer, :class => "customer" %>
+<% end %>

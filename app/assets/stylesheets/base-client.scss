@@ -171,3 +171,16 @@ body, html {
     }
   }
 }
+
+.html-view {
+  line-height:21px;
+  iframe, embed, img {
+    max-width:100%;
+  }
+  p {
+    font-size:15px;
+    line-height:inherit;
+    letter-spacing:-1px !important;
+    margin-bottom:0;
+  }
+}

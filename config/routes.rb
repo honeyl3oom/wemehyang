@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get '/' => 'client/home#main', as: :client_home
   get '/room/index' => 'client/room#index', as: :room_index
   get '/room/view' => 'client/room#view', as: :room_view
+  get '/reservation' => 'client/home#reserve', as: :client_reserve
   get '/tour' => 'client/home#tour', as: :client_tour
   get '/notice' => 'client/home#notice', as: :client_notice
   get '/faq' => 'client/home#faq', as: :client_faq
@@ -19,6 +20,12 @@ Rails.application.routes.draw do
 
     get "main_etc/index" => "main_image#etc_index", as: :main_image_etc_index
     put "main_etc/update" => "main_image#etc_update", as: :main_image_etc_update
+
+    get "top_bg/index" => "home#top_bg_index", as: :top_bg_index
+    put "top_bg/update" => "home#top_bg_update", as: :top_bg_update
+
+    get "reserve" => "home#reserve", as: :reserve_edit
+    put "reserve/update" => "home#reserve_update", as: :reserve_update
 
     get "tour/index" => "tour#index", as: :tour_index
     get "tour/new" => "tour#new", as: :tour_new

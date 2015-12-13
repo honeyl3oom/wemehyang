@@ -7,6 +7,7 @@ class ClientController < ApplicationController
     @menu = {
       :home => [client_home_path],
       :room => [room_index_path, room_view_path],
+      :reserve => [client_reserve_path],
       :special => [client_tour_path],
       :customer => [client_notice_path, client_faq_path],
     }
