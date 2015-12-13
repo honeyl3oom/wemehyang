@@ -1,6 +1,7 @@
 #=require client/base-default
 
 @app.controller("ClientHomeTour", ['$scope', '$window', ($scope, $window)->
+  $scope.top_bg = gon.top_bg
   $scope.tours = gon.tours
 ])
 

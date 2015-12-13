@@ -1,6 +1,8 @@
 class Client::HomeController < ClientController
   def main
-    gon.main_images = ["/uploads/web_images/ex/evt_01.jpg", "/uploads/web_images/ex/evt_06.jpg", "/uploads/web_images/ex/evt_03.jpg"].collect{|v| {:url => v}}
+    p = PsInfo.take
+    gon.main_images = MainImage.where(is_public: true).collect{|v| {:url => v.image_url(:thumb)}}
+    gon.main_etc = [p.main_pension_image_url(:thumb), p.main_tour_image_url(:thumb)]
   end
 
   def reserve

@@ -172,15 +172,9 @@
   }
   .l {
     float:left;
-    .bg {
-      background-image:url($image-path+"/ex/room_bg.jpg");
-    }
   }
   .r {
     float:right;
-    .bg {
-      background-image:url($image-path+"/ex/special_bg.jpg");
-    }
   }
   .map-cont {
     margin-top:30px;

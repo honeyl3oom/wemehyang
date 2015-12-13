@@ -16,7 +16,7 @@
   <div class="cont">
     <div class="mn-cont">
       <div class="mn l" url="<%=room_index_path%>">
-        <div class="bg">
+        <div class="bg" ng-style="{'background-image':'url({{etc[0]}})'}">
           <div class="alpha">
             <div class="ctt">
               <span class="tit">펜션둘러보기</span><i class="fa fa-arrow-right fa-3x"></i>
@@ -24,11 +24,11 @@
           </div>
         </div>
       </div>
-      <div class="mn r" url="<%=client_special_path%>">
-        <div class="bg">
+      <div class="mn r" url="<%=client_tour_path%>">
+        <div class="bg" ng-style="{'background-image':'url({{etc[1]}})'}">
           <div class="alpha">
             <div class="ctt">
-              <span class="tit">특별함</span><i class="fa fa-arrow-right fa-3x"></i>
+              <span class="tit">관광지</span><i class="fa fa-arrow-right fa-3x"></i>
             </div>
           </div>
         </div>
