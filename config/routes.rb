@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   get '/' => 'client/home#main', as: :client_home
-  get '/room/index' => 'client/room#index', as: :room_index
+  get '/pension' => 'client/room#index', as: :room_index
   get '/room/view' => 'client/room#view', as: :room_view
   get '/reservation' => 'client/home#reserve', as: :client_reserve
+  get '/garden' => "client/home#garden", as: :client_garden
   get '/tour' => 'client/home#tour', as: :client_tour
   get '/notice' => 'client/home#notice', as: :client_notice
   get '/faq' => 'client/home#faq', as: :client_faq

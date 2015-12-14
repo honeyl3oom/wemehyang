@@ -1,7 +1,7 @@
 #=require lib/set-blueimp-gallery
 #=require client/base-default
 
-@app.controller("ClientRoomIndex", ['$scope', '$window', ($scope, $window)->
+@app.controller("ClientHomeGarden", ['$scope', '$window', ($scope, $window)->
   $scope.top_bg = gon.top_bg
   $scope.floor_1_images = gon.floor_1_images
   $scope.floor_2_images = gon.floor_2_images

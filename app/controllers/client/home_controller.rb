@@ -11,6 +11,33 @@ class Client::HomeController < ClientController
     gon.reserve = p.reservation
   end
 
+  def garden
+    gon.top_bg = PsInfo.take.top_bg_tour_url(:thumb)
+    pre = "/uploads/web_images/ex"
+    gon.floor_1_images = [
+      pre+"/room_slide_1.jpg",
+      pre+"/room_slide_2.jpg",
+      pre+"/room_slide_3.jpg",
+      pre+"/room_slide_1.jpg",
+      pre+"/room_slide_2.jpg",
+      pre+"/room_slide_3.jpg",
+      pre+"/room_slide_1.jpg",
+      pre+"/room_slide_2.jpg",
+      pre+"/room_slide_3.jpg",
+    ]
+    gon.floor_2_images = [
+      pre+"/room_slide_1.jpg",
+      pre+"/room_slide_2.jpg",
+      pre+"/room_slide_3.jpg",
+      pre+"/room_slide_1.jpg",
+      pre+"/room_slide_2.jpg",
+      pre+"/room_slide_3.jpg",
+      pre+"/room_slide_1.jpg",
+      pre+"/room_slide_2.jpg",
+      pre+"/room_slide_3.jpg",
+    ]
+  end
+
   def special
   end
 
