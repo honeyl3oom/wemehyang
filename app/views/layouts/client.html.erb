@@ -41,7 +41,7 @@
       <ul class="menu-cont" uib-collapse="!menuCollapse && isMobileWidth">
         <li class="<%="active" if @menu[:home].include?(@current_uri) %>"><a href="<%=client_home_path%>"><span>홈</span></a></li>
         <li class="<%="active" if @menu[:room].include?(@current_uri) %>"><a href="<%=room_index_path%>"><span>펜션둘러보기</span></a></li>
-        <li class="<%="active" if @menu[:special].include?(@current_uri) %>"><a href="<%=client_tour_path%>"><span>관광지</span></a></li>
+        <li class="<%="active" if @menu[:special].include?(@current_uri) %>"><a href="<%=client_tour_path%>"><span>정원둘러보기</span></a></li>
         <li class="<%="active" if @menu[:reserve].include?(@current_uri) %>"><a href="<%=client_reserve_path%>"><span>예약</span></a></li>
         <li class="<%="active" if @menu[:customer].include?(@current_uri) %>"><a href="<%=client_notice_path%>"><span>고객센터</span></a></li>
       </ul>
