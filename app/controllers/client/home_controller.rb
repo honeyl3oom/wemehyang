@@ -13,29 +13,17 @@ class Client::HomeController < ClientController
 
   def garden
     gon.top_bg = PsInfo.take.top_bg_tour_url(:thumb)
-    pre = "/uploads/web_images/ex"
-    gon.floor_1_images = [
-      pre+"/room_slide_1.jpg",
-      pre+"/room_slide_2.jpg",
-      pre+"/room_slide_3.jpg",
-      pre+"/room_slide_1.jpg",
-      pre+"/room_slide_2.jpg",
-      pre+"/room_slide_3.jpg",
-      pre+"/room_slide_1.jpg",
-      pre+"/room_slide_2.jpg",
-      pre+"/room_slide_3.jpg",
-    ]
-    gon.floor_2_images = [
-      pre+"/room_slide_1.jpg",
-      pre+"/room_slide_2.jpg",
-      pre+"/room_slide_3.jpg",
-      pre+"/room_slide_1.jpg",
-      pre+"/room_slide_2.jpg",
-      pre+"/room_slide_3.jpg",
-      pre+"/room_slide_1.jpg",
-      pre+"/room_slide_2.jpg",
-      pre+"/room_slide_3.jpg",
-    ]
+    pre = "/uploads/web_images/tmp/egarden/e_"
+    gon.floor_1_images = []
+    9.times do |i|
+      gon.floor_1_images.push(pre+"#{i+1}.jpg")
+    end
+    
+    gon.floor_2_images = []
+    pre = "/uploads/web_images/tmp/wgarden/w_"
+    9.times do |i|
+      gon.floor_2_images.push(pre+"#{i+1}.jpg")
+    end
   end
 
   def special
