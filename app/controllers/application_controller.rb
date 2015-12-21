@@ -22,6 +22,7 @@ class ApplicationController < ActionController::Base
     }
     @web_img_path = "http://#{@global_var["hostname"]}/uploads/web_images"
     @current_uri = request.path
+    @phone = "010-9735-1950"
 
     gon.clear
     if flash[:alert] && flash[:alert] != ""
